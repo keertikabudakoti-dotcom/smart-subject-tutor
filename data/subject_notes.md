@@ -1,23 +1,44 @@
-# Subject: Operating Systems (B.Tech CSE Core)
+Subject: Python Programming (B.Tech CSE Core)
+Topic 1: Python Basics, Variables, and Data Types
+Python is a high-level, interpreted, general-purpose programming language known for its simple syntax and readability. It supports multiple programming paradigms, including procedural, object-oriented, and functional programming. Python uses dynamic typing, which means variables do not require explicit data type declarations.
 
-## Topic 1: Process vs Thread
-A Process is an independent program in execution that has its own isolated virtual address space, code segment, data segment, and operating system resources such as open files. Because processes are isolated, switching between two processes (Context Switching) is heavy and slow because the CPU cache and Memory Management Unit (MMU) page tables must be flushed.
-A Thread, often called a lightweight process, is the smallest unit of CPU execution within a process. Multiple threads inside the same process share the same code, data, and heap memory segments, while each thread keeps its own private stack and program counter (registers). Sharing memory makes inter-thread communication fast and context switching much cheaper than processes.
+Python provides several built-in data types, including Integers (int), Floating-point numbers (float), Strings (str), Booleans (bool), and Complex numbers (complex). Variables are used to store data values, while operators perform arithmetic, logical, comparison, and assignment operations.
 
-## Topic 2: Deadlock and the Four Coffman Conditions
-A Deadlock is a permanent blocking state in an Operating System where a set of processes are stalled because each process holds at least one resource and waits to acquire another resource currently held by another process in the same set.
-A deadlock can occur if and only if all four Coffman conditions hold simultaneously:
-1. Mutual Exclusion: At least one resource must be held in a non-shareable mode (only one process can use it at a time).
-2. Hold and Wait: A process must be currently holding at least one resource while requesting additional resources held by other processes.
-3. No Preemption: Resources cannot be forcibly taken away from a process; they can only be released voluntarily by the process holding them after it finishes its task.
-4. Circular Wait: A closed chain of processes exists such that Process P0 waits for a resource held by P1, P1 waits for P2, and Pn waits for a resource held by P0.
+Topic 2: Control Flow Statements and Loops
+Control Flow Statements determine the order in which instructions are executed in a Python program. Conditional statements such as if, elif, and else allow a program to make decisions based on specific conditions.
 
-## Topic 3: Virtual Memory, Paging, and Page Faults
-Virtual Memory is a memory management technique that gives each process the illusion of having a large, contiguous private memory space, even when physical RAM is smaller. The OS divides virtual memory into fixed-size blocks called Pages (typically 4 KB) and physical RAM into fixed-size blocks called Frames.
-A Page Table maps virtual page numbers to physical frame numbers. When a CPU requests a virtual address whose page is not currently loaded in physical RAM, the hardware triggers a Page Fault trap. The OS pauses the process, locates the required page on the secondary disk (swap space), loads it into a free RAM frame, updates the Page Table, and restarts the instruction. If the system spends more time swapping pages between disk and RAM than executing instructions, it enters a severe performance collapse called Thrashing.
+Python provides two primary looping structures:
 
-## Topic 4: CPU Scheduling Algorithms (FCFS, SJF, and Round Robin)
-CPU Scheduling determines which process in the Ready Queue gets allocated to the CPU next.
-1. First-Come, First-Served (FCFS): A non-preemptive queue where the first process to arrive executes until completion. FCFS suffers from the Convoy Effect, where one long CPU-bound process forces many short I/O-bound processes to wait, increasing average waiting time.
-2. Shortest Job First (SJF): Selects the process with the smallest next CPU burst time. While SJF is mathematically optimal for minimizing average waiting time, it can cause Starvation for long processes if short processes keep arriving continuously.
-3. Round Robin (RR): Designed for time-sharing interactive systems. Each process gets a fixed small unit of CPU time called a Time Quantum (typically 10 to 100 milliseconds). If the process does not finish within the time quantum, the OS preempts it and moves it to the back of the Ready Queue.
+For Loop: Used to iterate over a sequence such as a list, tuple, string, or range of numbers.
+
+While Loop: Repeatedly executes a block of code as long as a specified condition remains True.
+
+The break statement terminates a loop immediately, while the continue statement skips the current iteration and moves to the next iteration. The pass statement acts as a placeholder when a statement is syntactically required but no action is needed.
+
+Topic 3: Functions, Recursion, and Lambda Expressions
+A Function is a reusable block of code designed to perform a specific task. In Python, functions are defined using the def keyword and can accept parameters and return results using the return statement. Functions improve code reusability, modularity, and maintainability.
+
+Python supports different types of function arguments:
+
+Positional Arguments: Values are assigned according to their position.
+
+Keyword Arguments: Values are passed using parameter names.
+
+Default Arguments: Parameters are assigned predefined values.
+
+Variable-Length Arguments: *args accepts multiple positional arguments, while **kwargs accepts multiple keyword arguments.
+
+Recursion occurs when a function calls itself to solve a smaller version of a problem. Lambda Expressions are small anonymous functions created using the lambda keyword, commonly used with functions such as map(), filter(), and sorted().
+
+Topic 4: Object-Oriented Programming (OOP) in Python
+Object-Oriented Programming is a programming paradigm that organizes code around Classes and Objects. A Class is a blueprint that defines attributes and methods, while an Object is an instance of a class containing actual data.
+
+Python supports four major OOP principles:
+
+Encapsulation: Bundles data and methods within a class and controls access to internal data.
+
+Inheritance: Allows one class to acquire properties and methods from another class, promoting code reusability.
+
+Polymorphism: Allows the same method or interface to exhibit different behaviors depending on the object.
+
+Abstraction: Hides implementation details and exposes only essential functionality.
